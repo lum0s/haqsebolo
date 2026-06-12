@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>haqsebolo | Communication & Speaking Coach — Bangalore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal: #16151A;
+      --charcoal-mid: #1E1D24;
+      --saffron: #F5A623;
+      --saffron-light: #FFD07A;
+      --cream: #F9F6F0;
+      --warm-white: #FEFCF8;
+      --muted: #8A8795;
+      --text-dark: #1A1820;
+      --text-body: #3D3B47;
+      --border: rgba(245,166,35,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--warm-white);
+      color: var(--text-body);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 68px;
+      background: rgba(22,21,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245,166,35,0.12);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--saffron); letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--saffron); }
+    .nav-cta {
+      background: var(--saffron); color: var(--charcoal) !important;
+      padding: 0.45rem 1.2rem; border-radius: 4px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--saffron-light) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--charcoal);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 120px 5vw 80px;
+    }
+    .hero-ghost {
+      position: absolute;
+      right: -2vw; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(5rem, 12vw, 11rem);
+      font-weight: 900;
+      color: rgba(245,166,35,0.06);
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .hero-content {
+      max-width: 760px;
+      position: relative; z-index: 2;
+    }
+    .hero-eyebrow {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--saffron); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 32px; height: 1px;
+      background: var(--saffron);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 900; line-height: 1.05;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--saffron);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: rgba(255,255,255,0.62);
+      max-width: 520px; line-height: 1.7;
+      margin: 1.8rem 0 2.6rem;
+      font-weight: 300;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.88); font-weight: 500; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      background: var(--saffron); color: var(--charcoal);
+      padding: 0.85rem 2rem; border-radius: 5px;
+      font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--saffron-light); transform: translateY(-1px); }
+    .btn-ghost {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; display: flex; align-items: center; gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--saffron); }
+    .btn-ghost .play-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--saffron); padding: 0.7rem 0;
+      overflow: hidden; white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex; gap: 0;
+      animation: ticker 22s linear infinite;
+    }
+    .ticker-track span {
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--charcoal);
+      padding: 0 2.5rem;
+    }
+    .ticker-track span::after {
+      content: '✦'; margin-left: 2.5rem;
+      opacity: 0.5;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── TRUSTED ── */
+    .trusted {
+      background: var(--charcoal-mid);
+      padding: 4rem 5vw;
+      text-align: center;
+    }
+    .trusted-label {
+      font-size: 0.72rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    .trusted-logos {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; align-items: center;
+      gap: 2rem 3.5rem;
+    }
+    .logo-pill {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .logo-pill:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── UNLOCK SECTION ── */
+    .unlock {
+      background: var(--cream);
+      padding: 7rem 5vw;
+    }
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; color: var(--text-dark);
+      line-height: 1.2;
+    }
+    .unlock-header {
+      max-width: 500px;
+      margin-bottom: 3.5rem;
+    }
+    .unlock-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      background: rgba(0,0,0,0.08);
+      border-radius: 8px; overflow: hidden;
+    }
+    .unlock-card {
+      background: var(--warm-white);
+      padding: 2.8rem 2.4rem;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+    }
+    .unlock-card:hover { background: #F0EDE6; }
+    .card-tag {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--saffron); margin-bottom: 0.9rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--text-dark); margin-bottom: 0.8rem;
+      line-height: 1.25;
+    }
+    .card-desc {
+      font-size: 0.9rem; color: var(--muted);
+      line-height: 1.65;
+    }
+    .card-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--text-dark); margin-top: 1.4rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+    }
+
+    /* ── QUOTE BAND ── */
+    .quote-band {
+      background: var(--charcoal);
+      padding: 6rem 5vw;
+      text-align: center;
+    }
+    .quote-band blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2.4rem);
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      max-width: 840px; margin: 0 auto;
+      line-height: 1.5;
+    }
+    .quote-band blockquote::before { content: '\201C'; color: var(--saffron); }
+    .quote-band blockquote::after { content: '\201D'; color: var(--saffron); }
+    .quote-attr {
+      font-size: 0.82rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-top: 1.4rem;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--warm-white);
+      padding: 7rem 5vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw; align-items: center;
+    }
+    .about-image {
+      aspect-ratio: 4/5;
+      background: var(--charcoal-mid);
+      border-radius: 6px; overflow: hidden;
+      position: relative;
+    }
+    .about-image-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1E1D24 0%, #2C2A35 40%, #16151A 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-monogram {
+      font-family: 'Playfair Display', serif;
+      font-size: 7rem; font-weight: 900;
+      color: rgba(245,166,35,0.15);
+      letter-spacing: -0.04em;
+      user-select: none;
+    }
+    .about-badge {
+      position: absolute; bottom: 1.5rem; left: 1.5rem;
+      background: var(--saffron); color: var(--charcoal);
+      padding: 0.5rem 1rem; border-radius: 4px;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .about-content { max-width: 520px; }
+    .about-eyebrow {
+      font-size: 0.74rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--saffron); margin-bottom: 1.2rem;
+    }
+    .about h2 { margin-bottom: 1.5rem; }
+    .about p {
+      font-size: 1rem; line-height: 1.8;
+      color: var(--text-body); margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+    .about p strong { font-weight: 600; color: var(--text-dark); }
+    .btn-outline {
+      display: inline-block; margin-top: 0.8rem;
+      padding: 0.75rem 1.8rem;
+      border: 1.5px solid var(--text-dark);
+      color: var(--text-dark); text-decoration: none;
+      font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 4px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--text-dark); color: white; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      background: var(--cream);
+      padding: 7rem 5vw;
+    }
+    .testimonials h2 { margin-bottom: 3rem; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.2rem;
+    }
+    .testi-card {
+      background: var(--warm-white);
+      border-radius: 6px;
+      padding: 2rem;
+      border-left: 3px solid var(--saffron);
+    }
+    .testi-text {
+      font-size: 0.92rem; line-height: 1.75;
+      color: var(--text-body); margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+    .testi-text::before { content: '\201C'; color: var(--saffron); }
+    .testi-text::after { content: '\201D'; color: var(--saffron); }
+    .testi-author {
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--text-dark); letter-spacing: 0.04em;
+    }
+    .testi-role {
+      font-size: 0.74rem; color: var(--muted); margin-top: 0.2rem;
+    }
+
+    /* ── EMAIL CAPTURE ── */
+    .email-capture {
+      background: var(--charcoal);
+      padding: 6rem 5vw;
+    }
+    .email-inner {
+      max-width: 680px; margin: 0 auto; text-align: center;
+    }
+    .email-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700; color: white; margin-bottom: 0.8rem;
+    }
+    .email-inner p {
+      color: rgba(255,255,255,0.55);
+      font-size: 1rem; margin-bottom: 2rem; line-height: 1.65;
+      font-weight: 300;
+    }
+    .checklist {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 0.6rem 2rem; margin-bottom: 2.4rem;
+      list-style: none;
+    }
+    .checklist li {
+      font-size: 0.85rem; color: rgba(255,255,255,0.75);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .checklist li::before {
+      content: '✓'; color: var(--saffron);
+      font-weight: 700;
+    }
+    .email-form {
+      display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;
+    }
+    .email-form input[type="email"] {
+      flex: 1; min-width: 240px;
+      padding: 0.85rem 1.2rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 5px; color: white;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s;
+    }
+    .email-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .email-form input:focus { border-color: var(--saffron); }
+    .email-form button {
+      background: var(--saffron); color: var(--charcoal);
+      border: none; padding: 0.85rem 1.8rem;
+      border-radius: 5px; font-weight: 700;
+      font-size: 0.9rem; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+    }
+    .email-form button:hover { background: var(--saffron-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0F0E13;
+      padding: 4rem 5vw 2.5rem;
+    }
+    .footer-top {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; gap: 2.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 2rem;
+    }
+    .footer-brand .nav-logo { display: block; margin-bottom: 0.8rem; font-size: 1.5rem; }
+    .footer-tagline {
+      font-size: 0.83rem; color: var(--muted); max-width: 220px; line-height: 1.6;
+    }
+    .footer-socials {
+      display: flex; gap: 1rem; margin-top: 1.2rem;
+    }
+    .social-icon {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); font-size: 0.75rem;
+      text-decoration: none; font-weight: 700;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-icon:hover { border-color: var(--saffron); color: var(--saffron); }
+    .footer-links h4 {
+      font-size: 0.72rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
+    .footer-bottom {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: center;
+      gap: 0.5rem;
+    }
+    .footer-copy {
+      font-size: 0.78rem; color: rgba(255,255,255,0.25);
+    }
+    .footer-legal {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .footer-legal a {
+      font-size: 0.75rem; color: rgba(255,255,255,0.25);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.55); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about { grid-template-columns: 1fr; }
+      .about-image { order: -1; max-height: 320px; }
+      .hero h1 { font-size: 2.8rem; }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">haqsebolo</a>
+  <ul class="nav-links">
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#speaking">Speaking</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#contact" class="nav-cta">Free Workshop →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-ghost">हक़ से बोलो</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Communication Coach · Bangalore</div>
+    <h1>Speak with<br><em>authority.</em></h1>
+    <p class="hero-sub">
+      <strong>haqsebolo</strong> is a Bangalore-based communication studio helping working professionals speak clearly, lead confidently, and make every conversation count — in the boardroom, on stage, and everywhere in between.
+    </p>
+    <div class="hero-actions">
+      <a href="#workshop" class="btn-primary">Free Workshop →</a>
+      <a href="#about" class="btn-ghost">
+        <span class="play-icon">▶</span>
+        Watch the reel
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Speak Up</span><span>Lead Rooms</span><span>Own the Stage</span>
+    <span>Command Presence</span><span>हक़ से बोलो</span><span>Find Your Voice</span>
+    <span>Bengaluru's #1 Communication Studio</span><span>Speak Up</span>
+    <span>Lead Rooms</span><span>Own the Stage</span><span>Command Presence</span>
+    <span>हक़ से बोलो</span><span>Find Your Voice</span>
+    <span>Bengaluru's #1 Communication Studio</span>
+  </div>
+</div>
+
+<!-- TRUSTED BY -->
+<section class="trusted">
+  <p class="trusted-label">Professionals from these companies have trained with us</p>
+  <div class="trusted-logos">
+    <span class="logo-pill">Infosys</span>
+    <span class="logo-pill">Wipro</span>
+    <span class="logo-pill">Flipkart</span>
+    <span class="logo-pill">Myntra</span>
+    <span class="logo-pill">Accenture</span>
+    <span class="logo-pill">Zepto</span>
+    <span class="logo-pill">PhonePe</span>
+    <span class="logo-pill">Swiggy</span>
+  </div>
+</section>
+
+<!-- UNLOCK -->
+<section class="unlock" id="programs">
+  <div class="unlock-header reveal">
+    <h2 class="section-heading">Unlock your voice.<br>Unlock your potential.</h2>
+  </div>
+  <div class="unlock-grid reveal">
+    <a href="#programs" class="unlock-card">
+      <div class="card-tag">Learn</div>
+      <div class="card-title">Communication Programs</div>
+      <p class="card-desc">From vocal foundations to executive presence — structured workshops and masterclasses for every level. Live cohorts in Bangalore.</p>
+      <span class="card-link">Explore programs →</span>
+    </a>
+    <a href="#speaking" class="unlock-card">
+      <div class="card-tag">Hire</div>
+      <div class="card-title">Speaking & Corporate Training</div>
+      <p class="card-desc">High-impact keynotes and tailored workshops for your company's leadership and teams. Transformations that last beyond the session.</p>
+      <span class="card-link">Book a session →</span>
+    </a>
+    <a href="#resources" class="unlock-card">
+      <div class="card-tag">Free</div>
+      <div class="card-title">Resources & Articles</div>
+      <p class="card-desc">Videos, frameworks, articulation exercises, and practical lessons — all free. Start your journey right here.</p>
+      <span class="card-link">Explore resources →</span>
+    </a>
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<section class="quote-band">
+  <blockquote class="reveal">
+    Communication is the skill that multiplies every other skill you have.
+  </blockquote>
+  <p class="quote-attr reveal" style="margin-top:1.4rem;">haqsebolo</p>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-image reveal">
+    <div class="about-image-inner">
+      <span class="about-monogram">HSB</span>
+    </div>
+    <div class="about-badge">Based in Bangalore</div>
+  </div>
+  <div class="about-content reveal">
+    <div class="about-eyebrow">Our Story</div>
+    <h2 class="section-heading">हक़ से बोलो means: speak with the right you've earned.</h2>
+    <p>We started haqsebolo because we saw brilliant people held back — not by lack of knowledge, but by the inability to voice it. Engineers, managers, founders, all silenced by hesitation, unclear structure, or a voice that didn't carry weight.</p>
+    <p><strong>We built a studio rooted in Bangalore's working culture</strong> — practical, direct, and designed for professionals who already have the substance and just need the delivery to match.</p>
+    <p>Our method draws from performance, linguistics, and cognitive science. No generic "public speaking tips." Real frameworks that change how you think about every conversation, meeting, and stage you'll ever face.</p>
+    <a href="#contact" class="btn-outline">Read our full story →</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <h2 class="section-heading reveal">What our students say</h2>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <p class="testi-text">I used to freeze in meetings. After the haqsebolo workshop, I gave a presentation to our entire leadership team and actually enjoyed it. The vocal framework alone was worth everything.</p>
+      <div class="testi-author">Priya Ramanathan</div>
+      <div class="testi-role">Senior Product Manager, Bengaluru</div>
+    </div>
+    <div class="testi-card reveal">
+      <p class="testi-text">As a developer, I never thought "communication training" was for me. Three sessions in and I was running standups differently, negotiating with stakeholders, and feeling heard for the first time.</p>
+      <div class="testi-author">Arjun Mehta</div>
+      <div class="testi-role">Software Engineer, Flipkart</div>
+    </div>
+    <div class="testi-card reveal">
+      <p class="testi-text">The structured storytelling method changed how I pitch. I closed my last two funding rounds with a clarity I'd never had before. This is a business skill, not just a soft skill.</p>
+      <div class="testi-author">Sneha Iyer</div>
+      <div class="testi-role">Founder, Bangalore Startup</div>
+    </div>
+    <div class="testi-card reveal">
+      <p class="testi-text">Best investment I've made in my career this year. The presence drills and confidence tools gave me something no MBA module ever did. Highly recommend for anyone moving into leadership.</p>
+      <div class="testi-author">Ravi Krishnamurthy</div>
+      <div class="testi-role">Team Lead, Accenture</div>
+    </div>
+    <div class="testi-card reveal">
+      <p class="testi-text">हक़ से बोलो — I finally understand what that means. I used to apologise for my accent, my pauses, my opinions. Now I use all of them. This program gave me my voice back.</p>
+      <div class="testi-author">Ananya Desai</div>
+      <div class="testi-role">Marketing Manager, Mysuru</div>
+    </div>
+    <div class="testi-card reveal">
+      <p class="testi-text">The workshop was intense, practical, and immediately applicable. I gave a client presentation the very next day and the feedback was completely different. Zero hesitation recommended.</p>
+      <div class="testi-author">Vikram Nair</div>
+      <div class="testi-role">Consultant, Deloitte</div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="email-capture" id="workshop">
+  <div class="email-inner reveal">
+    <h2>Free Communication Series</h2>
+    <p>Learn the 3 skills that separate good communicators from unforgettable ones — delivered free to your inbox.</p>
+    <ul class="checklist">
+      <li>Finding Your Authentic Voice</li>
+      <li>The Structure of Persuasion</li>
+      <li>Commanding Any Room</li>
+    </ul>
+    <div class="email-form">
+      <input type="email" placeholder="Your work email" />
+      <button type="button">Get Free Series</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">haqsebolo</a>
+      <p class="footer-tagline">Bangalore's communication studio for working professionals who refuse to be overlooked.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-icon" aria-label="Instagram">in</a>
+        <a href="#" class="social-icon" aria-label="LinkedIn">Li</a>
+        <a href="#" class="social-icon" aria-label="YouTube">YT</a>
+        <a href="#" class="social-icon" aria-label="Twitter">X</a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#">Communication Fundamentals</a></li>
+        <li><a href="#">Executive Presence</a></li>
+        <li><a href="#">Public Speaking Intensives</a></li>
+        <li><a href="#">Corporate Workshops</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Free Resources</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Podcast</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Book a Speaking Session</a></li>
+        <li><a href="#">Corporate Enquiries</a></li>
+        <li><a href="#">hello@haqsebolo.com</a></li>
+        <li><a href="#">Bangalore, Karnataka</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 haqsebolo · Bangalore</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Refund Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
