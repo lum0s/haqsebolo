@@ -10,24 +10,24 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --charcoal: #1A0A2E;
-      --charcoal-mid: #2D1B4E;
-      --saffron: #FF2D95;
-      --saffron-light: #FF70B8;
-      --accent-lime: #C6FF00;
-      --cream: #FFF0FA;
-      --warm-white: #FDF8FF;
-      --muted: #A08BB5;
-      --text-dark: #1A0828;
-      --text-body: #4A3560;
-      --border: rgba(255,45,149,0.22);
+      --charcoal: #0A0A0A;
+      --charcoal-mid: #141414;
+      --saffron: #B8973A;
+      --saffron-light: #CDB882;
+      --accent-lime: #9A7B2E;
+      --cream: #F3F0EA;
+      --warm-white: #F9F8F6;
+      --muted: #7A756C;
+      --text-dark: #0A0A0A;
+      --text-body: #4A4640;
+      --border: rgba(184,151,58,0.22);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--warm-white);
+      background: linear-gradient(180deg, #FAFAF8 0%, var(--warm-white) 50%, #F0EDE6 100%);
       color: var(--text-body);
       overflow-x: hidden;
     }
@@ -37,9 +37,9 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 5vw; height: 68px;
-      background: rgba(26,10,46,0.92);
+      background: rgba(10,10,10,0.96);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,45,149,0.2);
+      border-bottom: 1px solid rgba(184,151,58,0.18);
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
@@ -60,17 +60,17 @@
     }
     .nav-links a:hover { color: var(--saffron); }
     .nav-cta {
-      background: linear-gradient(135deg, var(--saffron), #FF6B35); color: #fff !important;
+      background: var(--saffron); color: #0A0A0A !important;
       padding: 0.45rem 1.2rem; border-radius: 4px;
       font-weight: 600 !important;
       transition: background 0.2s !important;
     }
-    .nav-cta:hover { background: linear-gradient(135deg, var(--saffron-light), #FF8F5C) !important; }
+    .nav-cta:hover { background: var(--saffron-light) !important; }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(145deg, var(--charcoal) 0%, #3D1578 45%, #1A0A2E 100%);
+      background: linear-gradient(145deg, #0A0A0A 0%, #121212 50%, #0A0A0A 100%);
       display: flex; align-items: center;
       position: relative; overflow: hidden;
       padding: 120px 5vw 80px;
@@ -82,7 +82,7 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(5rem, 12vw, 11rem);
       font-weight: 900;
-      color: rgba(255,45,149,0.08);
+      color: rgba(184,151,58,0.07);
       white-space: nowrap;
       user-select: none;
       pointer-events: none;
@@ -123,15 +123,15 @@
     .hero-sub strong { color: rgba(255,255,255,0.88); font-weight: 500; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
     .btn-primary {
-      background: linear-gradient(135deg, var(--saffron), #FF6B35);
-      color: #fff;
+      background: var(--saffron);
+      color: #0A0A0A;
       padding: 0.85rem 2rem; border-radius: 5px;
       font-weight: 700; font-size: 0.95rem;
       text-decoration: none; letter-spacing: 0.02em;
       transition: background 0.2s, transform 0.15s;
       display: inline-block;
     }
-    .btn-primary:hover { background: linear-gradient(135deg, var(--saffron-light), #FF8F5C); transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--saffron-light); transform: translateY(-1px); }
     .btn-ghost {
       color: rgba(255,255,255,0.75);
       text-decoration: none; font-size: 0.9rem;
@@ -148,7 +148,7 @@
 
     /* ── TICKER ── */
     .ticker-wrap {
-      background: linear-gradient(90deg, var(--accent-lime), #00F5D4, var(--saffron));
+      background: #E8E2D4;
       padding: 0.7rem 0;
       overflow: hidden; white-space: nowrap;
     }
@@ -159,7 +159,7 @@
     .ticker-track span {
       font-size: 0.78rem; font-weight: 700;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--charcoal);
+      color: #3D3830;
       padding: 0 2.5rem;
     }
     .ticker-track span::after {
@@ -195,7 +195,7 @@
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    .logo-pill:hover { color: rgba(255,255,255,0.7); }
+    .logo-pill:hover { color: rgba(205,184,130,0.85); }
 
     /* ── UNLOCK SECTION ── */
     .unlock {
@@ -226,7 +226,7 @@
       display: block;
       transition: background 0.2s;
     }
-    .unlock-card:hover { background: #F5E0FF; }
+    .unlock-card:hover { background: #F5F2EB; }
     .card-tag {
       font-size: 0.7rem; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
@@ -290,19 +290,19 @@
     }
     .about-image-inner {
       width: 100%; height: 100%;
-      background: linear-gradient(135deg, #2D1B4E 0%, #5C2D91 40%, #1A0A2E 100%);
+      background: linear-gradient(135deg, #141414 0%, #1A1A1A 50%, #0A0A0A 100%);
       display: flex; align-items: center; justify-content: center;
     }
     .about-monogram {
       font-family: 'Playfair Display', serif;
       font-size: 7rem; font-weight: 900;
-      color: rgba(255,45,149,0.2);
+      color: rgba(184,151,58,0.18);
       letter-spacing: -0.04em;
       user-select: none;
     }
     .about-badge {
       position: absolute; bottom: 1.5rem; left: 1.5rem;
-      background: var(--saffron); color: var(--charcoal);
+      background: var(--saffron); color: #0A0A0A;
       padding: 0.5rem 1rem; border-radius: 4px;
       font-size: 0.78rem; font-weight: 700;
       letter-spacing: 0.06em; text-transform: uppercase;
@@ -330,7 +330,7 @@
       border-radius: 4px;
       transition: background 0.2s, color 0.2s;
     }
-    .btn-outline:hover { background: var(--text-dark); color: white; }
+    .btn-outline:hover { background: var(--text-dark); color: var(--saffron-light); border-color: var(--text-dark); }
 
     /* ── TESTIMONIALS ── */
     .testimonials {
@@ -410,18 +410,18 @@
     .email-form input::placeholder { color: rgba(255,255,255,0.3); }
     .email-form input:focus { border-color: var(--saffron); }
     .email-form button {
-      background: linear-gradient(135deg, var(--saffron), #FF6B35); color: #fff;
+      background: var(--saffron); color: #0A0A0A;
       border: none; padding: 0.85rem 1.8rem;
       border-radius: 5px; font-weight: 700;
       font-size: 0.9rem; cursor: pointer;
       font-family: 'Inter', sans-serif;
       transition: background 0.2s;
     }
-    .email-form button:hover { background: linear-gradient(135deg, var(--saffron-light), #FF8F5C); }
+    .email-form button:hover { background: var(--saffron-light); }
 
     /* ── FOOTER ── */
     footer {
-      background: #0D0520;
+      background: #050505;
       padding: 4rem 5vw 2.5rem;
     }
     .footer-top {
