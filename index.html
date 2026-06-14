@@ -70,23 +70,45 @@
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(145deg, #0A0A0A 0%, #121212 50%, #0A0A0A 100%);
+      background: #0A0A0A;
       display: flex; align-items: center;
       position: relative; overflow: hidden;
       padding: 120px 5vw 80px;
     }
-    .hero-ghost {
+    .hero-visual {
       position: absolute;
-      right: -2vw; top: 50%;
-      transform: translateY(-50%);
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(5rem, 12vw, 11rem);
-      font-weight: 900;
-      color: rgba(184,151,58,0.07);
-      white-space: nowrap;
-      user-select: none;
+      right: 5vw; top: 0; bottom: 0;
+      width: min(75vw, 920px);
+      height: 100%;
+      z-index: 1;
       pointer-events: none;
-      line-height: 1;
+    }
+    .hero-visual img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position: 92% center;
+      opacity: 1;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,0.6) 10%,
+        black 22%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0,0,0,0.6) 10%,
+        black 22%
+      );
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to top, #0A0A0A 0%, transparent 16%),
+        linear-gradient(to right, #0A0A0A 0%, transparent 32%);
+      z-index: 1;
+      pointer-events: none;
     }
     .hero-content {
       max-width: 760px;
@@ -481,6 +503,14 @@
       .about { grid-template-columns: 1fr; }
       .about-image { order: -1; max-height: 320px; }
       .hero h1 { font-size: 2.8rem; }
+      .hero-visual {
+        width: 100%;
+        opacity: 0.45;
+      }
+      .hero-visual img {
+        object-fit: cover;
+        object-position: 75% center;
+      }
     }
 
     /* ── SCROLL REVEAL ── */
@@ -504,7 +534,9 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-ghost">हक़ से बोलो</div>
+  <div class="hero-visual" aria-hidden="true">
+    <img src="images/hero-coach.png" alt="" />
+  </div>
   <div class="hero-content">
     <div class="hero-eyebrow">Communication Coach · Bangalore</div>
     <h1>Speak with<br><em>authority.</em></h1>
